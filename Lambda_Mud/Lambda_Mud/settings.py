@@ -72,7 +72,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'Lambda_Mud.wsgi.application'
+# WSGI_APPLICATION = 'Lambda_Mud.wsgi.application'
 
 
 # Database
