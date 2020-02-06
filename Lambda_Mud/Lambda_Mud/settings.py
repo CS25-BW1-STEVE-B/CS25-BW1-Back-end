@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework.authtoken',
     'django.contrib.sites',
+    'api',
+    'Lambda_Mud',
+    'adventure',
 ]
 
 MIDDLEWARE = [

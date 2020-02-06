@@ -1,11 +1,15 @@
 from django.db import models
 
 # Create your models here.
-class Player(models.model):
+class Item(models.Model):
+    name = models.CharField(max_length=30)
+    description = models.TextField(max_length=128)
+
+
+class Player(models.Model):
     name = models.CharField(max_length=30)
     description = models.TextField(max_length=128)
     inventory = models.ForeignKey(Item, on_delete=models.CASCADE)
-
 
     def travel(self, direction):
         next_room = self.current_room.get_room_in_direction(direction)
@@ -15,11 +19,11 @@ class Player(models.model):
             print('path is blocked')
 
 
-class Room(models.model):
-    name = models.CharField(max_length=30)
+class Room(models.Model):
+    title = models.CharField(max_length=30)
     description = models.TextField(max_length=128)
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
-    player = models.ForeignKey(Player)
+    player = models.ForeignKey(Player, on_delete=models.CASCADE)
 
     def get_room_in_direction(self, direction):
         if direction == 'n':
@@ -33,7 +37,5 @@ class Room(models.model):
             
 
 
-class Item(models.model):
-    name = models.CharField(max_length=30)
-    description = models.TextField(max_length=128)
+
 

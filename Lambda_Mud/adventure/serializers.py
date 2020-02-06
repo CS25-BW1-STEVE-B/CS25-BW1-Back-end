@@ -15,7 +15,7 @@ class PlayerViewSet(viewsets.ModelViewSet):
 class RoomSerializer(serializers.HyperlinkModelSerializer):
     class Meta:
         model = Room
-        fields = ('name', 'description', 'item', 'player')
+        fields = ('title', 'description', 'item', 'player')
 
 class RoomViewSet(viewsets.ModelViewSet):
     serializer_class = RoomSerializer
