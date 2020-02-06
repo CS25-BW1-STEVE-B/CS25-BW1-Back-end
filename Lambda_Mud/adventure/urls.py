@@ -1,9 +1,9 @@
-from django.urls import path
-from . import views
+from django.contrib import admin
+from django.urls import path, include
+from django.conf.urls import include
 
 urlpatterns = [
-	path('say/', views.say, name='adventure-say'),
-	path('init/', views.init.as_view(), name='adenture-init'),
-    path('move/', views.move.as_view(), name='adventure-move'),
-    path('rooms/', views.room.as_view(), name='adventure-rooms')
+    path('admin/', admin.site.urls),
+    path('api/', include('api.urls')),
+    path('api/adv/', include('adventure.urls')),
 ]
