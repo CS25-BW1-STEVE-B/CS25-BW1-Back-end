@@ -20,7 +20,7 @@ class Player(models.Model):
 
 
 class Room(models.Model):
-    name = models.CharField(max_length=30)
+    title = models.CharField(max_length=30)
     description = models.TextField(max_length=128)
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
     player = models.ForeignKey(Player, on_delete=models.CASCADE)
