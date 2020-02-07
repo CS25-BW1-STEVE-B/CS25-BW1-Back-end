@@ -28,7 +28,7 @@ SECRET_KEY = '+9$i)h^u_@!=v2h#t^xd)m=@ws&7p3o1=dth5jt3z21%7$b(&j'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://lambdamudgame.herokuapp.com/']
 
 
 # Application definition
