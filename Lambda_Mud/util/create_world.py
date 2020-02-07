@@ -1,9 +1,8 @@
 from django.contrib.auth.models import User
-from adventure.models import Player, Room
-
+from Lambda_Mud.models import Player, Room
+from util.sample_generator import World
 
 Room.objects.all().delete()
-
 r_outside = Room(title="Outside Cave Entrance",
                description="North of you, the cave mount beckons")
 
@@ -21,11 +20,11 @@ r_treasure = Room(title="Treasure Chamber", description="""You've found the long
 chamber! Sadly, it has already been completely emptied by
 earlier adventurers. The only exit is to the south.""")
 
-# r_outside.save()
-# r_foyer.save()
-# r_overlook.save()
-# r_narrow.save()
-# r_treasure.save()
+r_outside.save()
+r_foyer.save()
+r_overlook.save()
+r_narrow.save()
+r_treasure.save()
 
 # Link rooms together
 r_outside.connectRooms(r_foyer, "n")
@@ -40,13 +39,24 @@ r_narrow.connectRooms(r_foyer, "w")
 r_narrow.connectRooms(r_treasure, "n")
 r_treasure.connectRooms(r_narrow, "s")
 
-r_outside.save()
-r_foyer.save()
-r_overlook.save()
-r_narrow.save()
-r_treasure.save()
+# r_outside.save()
+# r_foyer.save()
+# r_overlook.save()
+# r_narrow.save()
+# r_treasure.save()
 
 players=Player.objects.all()
 for p in players:
   p.currentRoom=r_outside.id
   p.save()
+
+
+w = World()
+num_rooms = 44
+width = 8
+height = 7
+w.generate_rooms(width, height, num_rooms)
+w.print_rooms()
+
+
+print(f"\n\nWorld\n  height: {height}\n  width: {width},\n  num_rooms: {num_rooms}\n")
