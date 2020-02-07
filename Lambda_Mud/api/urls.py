@@ -15,7 +15,6 @@ Including another URLconf
 """
 from django.urls import include, path
 from django.conf.urls import url
-from . import api
 
 urlpatterns = [
     path('', include('rest_auth.urls')),
