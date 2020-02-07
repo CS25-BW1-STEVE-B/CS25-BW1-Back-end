@@ -22,4 +22,6 @@ urlpatterns = [
     path('init', api.initialize),
     path('move', api.move),
     path('rooms', api.rooms),
+    path('admin/', admin.site.urls),
+    path('api/', include('api.urls')),
 ]
