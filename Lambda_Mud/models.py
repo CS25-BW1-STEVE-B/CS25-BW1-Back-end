@@ -75,7 +75,3 @@ def create_user_player(sender, instance, created, **kwargs):
 def save_user_player(sender, instance, **kwargs):
     instance.player.save()
 
-
-
-
-
